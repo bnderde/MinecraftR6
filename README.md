@@ -1,4 +1,2 @@
-# MinecraftR6
-Das Plugin wurde von bnder entwickelt und wird auf dem Minecraft-Server "bnder.de" eingesetzt.
-
-Urheber sind Jan Brinkmann und Bennet Eberhardt
+# Rainbow Craft
+**Dieses Plugin wurde von Jan Brinkmann programmiert. Alle Copyright Rechte liegen bei Jan Brinkmann (jan.brinkmann@bnder.de).**
