@@ -1,5 +1,5 @@
 name: MinecraftR6
-main: de.bnder.minecraftr6.main.Main
+main: de.bnder.rainbowCraft.main.Main
 author: bnder
 authors:
   - Jan Brinkmann
