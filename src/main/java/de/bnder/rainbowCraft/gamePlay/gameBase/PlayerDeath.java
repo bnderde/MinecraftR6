@@ -1,8 +1,20 @@
 package de.bnder.rainbowCraft.gamePlay.gameBase;
 
-//Made by EnderLPs | bnder.de
-//https://bnder.de
-//©Jan Brinkmann (EnderLPs)
+/*
+ * Copyright (C) 2019 Jan Brinkmann
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 
 import de.bnder.rainbowCraft.gamePlay.gameBase.gameManager.EndRound;
 import de.bnder.rainbowCraft.main.Main;
@@ -47,20 +59,7 @@ public class PlayerDeath implements Listener {
                     p.removePassenger(entity);
                 }
 
-//            ArrayList<String> alives = new ArrayList<String>();
-//            alives.addAll(Main.gamesC.getStringList("Game" + "." + game + ".alives"));
-//            alives.remove(p.getUniqueId().toString());
-//            Main.gamesC.set("Game" + "." + game + "." + "alives", alives);
-
-
-                //Set Player death
                 Connection.mainConnection().prepareStatement("UPDATE `MCR6_Games_Players` SET `alive`=false WHERE `name`='" + game + "' && `playerUUID`='" + p.getUniqueId().toString() + "'").executeUpdate();
-
-//                try {
-//                    Main.gamesC.save(Main.gamesFile);
-//                } catch (IOException ex) {
-//                    ex.printStackTrace();
-//                }
 
                 playerUtils.addLifetimeDeaths();
 

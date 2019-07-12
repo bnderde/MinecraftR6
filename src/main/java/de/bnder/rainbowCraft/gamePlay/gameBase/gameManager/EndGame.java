@@ -1,8 +1,20 @@
 package de.bnder.rainbowCraft.gamePlay.gameBase.gameManager;
 
-//Made by EnderLPs | bnder.de
-//https://bnder.de
-//©Jan Brinkmann (EnderLPs)
+/*
+ * Copyright (C) 2019 Jan Brinkmann
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 
 import de.bnder.rainbowCraft.gamePlay.gameUtils.GameUtils;
 import de.bnder.rainbowCraft.gamePlay.gameUtils.PlayerUtils;
@@ -13,7 +25,6 @@ import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
 import org.bukkit.NamespacedKey;
 import org.bukkit.World;
-import org.bukkit.craftbukkit.libs.org.apache.commons.io.FileUtils;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 
@@ -116,12 +127,8 @@ public class EndGame {
             World world = Bukkit.getWorld(GameUtils.mapPrefix + game);
             if (world != null) {
                 Bukkit.unloadWorld(world, true);
-                try {
-                    FileUtils.deleteDirectory(new File(world.getName()));
-                    Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "mv remove " + GameUtils.mapPrefix + game);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+                new File(world.getName()).delete();
+                Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "mv remove " + GameUtils.mapPrefix + game);
             }
         } else {
             EndRound.end(game, roundWinner);
