@@ -51,10 +51,10 @@ public class Main extends JavaPlugin {
     public static Plugin plugin;
     public static String prefix = "§7<< §9Rainbow Craft §7>>";
 
-    public static File gamesFile = new File("plugins/MinecraftR6/games.yml");
+    public static File gamesFile = new File("plugins/RainbowCraft/games.yml");
     public static FileConfiguration gamesC = YamlConfiguration.loadConfiguration(gamesFile);
 
-    public static File config = new File("plugins/MinecraftR6/configs.yml");
+    public static File config = new File("plugins/RainbowCraft/configs.yml");
     public static FileConfiguration configC = YamlConfiguration.loadConfiguration(config);
 
     public static String currency = "€";

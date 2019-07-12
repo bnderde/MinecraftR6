@@ -1,2 +1,4 @@
-
+target/
+out/
 .idea/workspace.xml
+/spigot-1.14.2.jar
