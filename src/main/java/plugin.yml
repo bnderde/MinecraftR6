@@ -1,0 +1,34 @@
+name: MinecraftR6
+main: de.bnder.minecraftr6.main.Main
+author: bnder
+authors:
+  - Jan Brinkmann
+  - Bennet Eberhardt
+version: 1.0
+api-version: 1.13
+website: https://bnder.de
+commands:
+  giveWeapon:
+    permission: bukkit.*
+  setgeisel:
+    permission: bukkit.*
+  setrescuepoint:
+    permission: bukkit.*
+  setlobby:
+    permission: bukkit.*
+  join:
+  leave:
+    aliases:
+      - l
+      - hub
+      - spawn
+      - quit
+  addgamespawn:
+    permission: bukkit.*
+  removegamespawn:
+    permission: bukkit.*
+  createcamera:
+    permission: bukkit.*
+  build:
+  leavebuild:
+  buildextras:
