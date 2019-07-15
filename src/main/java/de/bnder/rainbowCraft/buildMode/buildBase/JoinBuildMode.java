@@ -35,6 +35,10 @@ public class JoinBuildMode {
             if (!builderUtils.mapExists(mapID)) {
                 Connection.mainConnection().prepareStatement("INSERT INTO `MCR6_Player_Maps_General`(`owner`, `mapName`, `mapID`) VALUES ('" + p.getUniqueId().toString() + "','Unbenannt','" + mapID + "')").executeUpdate();
             }
+
+            Bukkit.getBossBar(NamespacedKey.minecraft("lobby_bar")).removePlayer(p);
+            p.setScoreboard(Bukkit.getScoreboardManager().getNewScoreboard());
+
             p.getInventory().clear();
 
             String mapName = BuilderUtils.buildMapPrefix + mapID;
