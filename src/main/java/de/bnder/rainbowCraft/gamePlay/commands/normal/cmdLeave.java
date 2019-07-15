@@ -120,7 +120,7 @@ public class cmdLeave implements CommandExecutor {
                             }
 
                             if (gameUtils.isRunning()) {
-                                
+
                                 if (gameUtils.players().size() <= 1 || gameUtils.getCTs().size() == 0 || gameUtils.getTs().size() == 0) {
                                     EndGame.end(games, "null");
                                 }
