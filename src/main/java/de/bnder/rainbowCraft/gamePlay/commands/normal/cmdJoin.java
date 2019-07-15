@@ -52,6 +52,10 @@ public class cmdJoin implements CommandExecutor {
                         BuilderUtils builderUtils = new BuilderUtils(p);
                         if (!builderUtils.isBuilding()) {
 
+                            p.getInventory().clear();
+
+                            p.sendMessage(Main.prefix + " §7Du betrittst das Spiel...");
+
                             for (Entity entity : p.getPassengers()) {
                                 p.removePassenger(entity);
                             }
