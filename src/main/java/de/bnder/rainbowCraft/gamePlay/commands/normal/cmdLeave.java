@@ -90,6 +90,49 @@ public class cmdLeave implements CommandExecutor {
                         if (Bukkit.getBossBar(NamespacedKey.minecraft(games.toLowerCase() + "ct")).getPlayers().contains(p)) {
                             Bukkit.getBossBar(NamespacedKey.minecraft(games.toLowerCase() + "ct")).removePlayer(p);
                         }
+                    } else {
+                        if (gameUtils.lobbyPlayers().contains(p)) {
+                            gameUtils.removePlayerComplete(p);
+                            for (PotionEffect effect : p.getActivePotionEffects()) {
+                                p.removePotionEffect(effect.getType());
+                            }
+
+                            Main.gamesC.set("Game" + "." + games + ".player" + "." + p.getUniqueId(), null);
+
+                            Main.gamesC.save(Main.gamesFile);
+                            for (Player all : gameUtils.lobbyPlayers()) {
+                                if (all.getOpenInventory() != null) {
+                                    if (all.getOpenInventory().getTitle().equalsIgnoreCase(LobbyItemInteract.chooseOperatorInvName)) {
+                                        LobbyItemInteract.openChooseOperatorInv(all, games);
+                                    }
+                                }
+                            }
+
+                            p.sendMessage(Main.prefix + " §aDu hast das Spiel verlassen.");
+                            p.getInventory().clear();
+                            if (sendMessage) {
+                                p.performCommand("tptospawn");
+                            }
+                            if (sendMessage) {
+                                for (Player all : gameUtils.players()) {
+                                    all.sendMessage(Main.prefix + " §e" + p.getName() + " §chat das Spiel verlassen.");
+                                }
+                            }
+
+                            if (gameUtils.isRunning()) {
+                                
+                                if (gameUtils.players().size() <= 1 || gameUtils.getCTs().size() == 0 || gameUtils.getTs().size() == 0) {
+                                    EndGame.end(games, "null");
+                                }
+                            }
+
+                            if (Bukkit.getBossBar(NamespacedKey.minecraft(games.toLowerCase() + "t")).getPlayers().contains(p)) {
+                                Bukkit.getBossBar(NamespacedKey.minecraft(games.toLowerCase() + "t")).removePlayer(p);
+                            }
+                            if (Bukkit.getBossBar(NamespacedKey.minecraft(games.toLowerCase() + "ct")).getPlayers().contains(p)) {
+                                Bukkit.getBossBar(NamespacedKey.minecraft(games.toLowerCase() + "ct")).removePlayer(p);
+                            }
+                        }
                     }
                 }
             } catch (Exception e) {
