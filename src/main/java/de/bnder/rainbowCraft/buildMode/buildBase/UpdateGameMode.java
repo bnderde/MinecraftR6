@@ -31,9 +31,7 @@ public class UpdateGameMode implements Listener {
     public void onTP(PlayerTeleportEvent e) {
         final Player p = e.getPlayer();
         String worldTo = e.getTo().getWorld().getName();
-        System.out.println(worldTo);
         if (worldTo.startsWith(BuilderUtils.buildMapPrefix)) {
-            System.out.println("a");
             new BukkitRunnable() {
                 @Override
                 public void run() {

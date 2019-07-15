@@ -38,7 +38,6 @@ public class CameraDestroy implements Listener {
                     if (entity.getHelmet().getType() == Material.FURNACE) {
                         Location loc = entity.getLocation();
                         try {
-                            System.out.println("X: " + Main.RoundTo2Decimals(loc.getX()) + " Y: " + Main.RoundTo2Decimals(loc.getY()) + " Z:" + Main.RoundTo2Decimals(loc.getZ()));
                             String mapID = entity.getWorld().getName().replaceFirst(BuilderUtils.buildMapPrefix, "");
                             Connection.mainConnection().prepareStatement("DELETE FROM `MCR6_Map_Cameras` WHERE `mapID`='" + mapID + "' && `x`=" + Main.RoundTo2Decimals(loc.getX()) + " && `y`=" + Main.RoundTo2Decimals(loc.getY()) + " && `z`=" + Main.RoundTo2Decimals(loc.getZ()) + "").executeUpdate();
                         } catch (Exception e1) {
