@@ -43,10 +43,7 @@ import de.bnder.rainbowCraft.gamePlay.gameBase.features.GraplingHook;
 import de.bnder.rainbowCraft.gamePlay.gameBase.features.Stacheldraht;
 import de.bnder.rainbowCraft.gamePlay.gameBase.hostage.HostageInteract;
 import de.bnder.rainbowCraft.gamePlay.gameBase.lobby.*;
-import de.bnder.rainbowCraft.gamePlay.operators.Dokkaebi;
-import de.bnder.rainbowCraft.gamePlay.operators.Fuze;
-import de.bnder.rainbowCraft.gamePlay.operators.Sledge;
-import de.bnder.rainbowCraft.gamePlay.operators.Smoke;
+import de.bnder.rainbowCraft.gamePlay.operators.*;
 import de.bnder.rainbowCraft.utils.Config;
 import de.bnder.rainbowCraft.utils.Connection;
 import org.bukkit.Bukkit;
@@ -123,6 +120,7 @@ public class Main extends JavaPlugin {
         Bukkit.getPluginManager().registerEvents(new Smoke(), this);
         Bukkit.getPluginManager().registerEvents(new Dokkaebi(), this);
         Bukkit.getPluginManager().registerEvents(new Fuze(), this);
+        Bukkit.getPluginManager().registerEvents(new Flasher(), this);
 
 
         //##################################################################

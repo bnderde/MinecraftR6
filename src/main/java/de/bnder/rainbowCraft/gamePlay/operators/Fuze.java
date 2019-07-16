@@ -78,6 +78,7 @@ public class Fuze implements Listener {
                                 @Override
                                 public void run() {
                                     Item grenade = shootFromLoc.getWorld().dropItem(shootFromLoc, new ItemStack(Material.SLIME_BALL));
+                                    grenade.setPickupDelay(400);
                                     Vector vector = p.getLocation().getDirection();
                                     vector.multiply(2);
                                     vector.setX(vector.getX() + (-7 + new Random().nextInt(7)));

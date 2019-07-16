@@ -27,6 +27,7 @@ import org.bukkit.NamespacedKey;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 import org.bukkit.potion.PotionEffect;
 
@@ -70,9 +71,6 @@ public class cmdLeave implements CommandExecutor {
                         p.sendMessage(Main.prefix + " §aDu hast das Spiel verlassen.");
                         p.getInventory().clear();
                         if (sendMessage) {
-                            p.performCommand("tptospawn");
-                        }
-                        if (sendMessage) {
                             for (Player all : gameUtils.players()) {
                                 all.sendMessage(Main.prefix + " §e" + p.getName() + " §chat das Spiel verlassen.");
                             }
@@ -89,6 +87,14 @@ public class cmdLeave implements CommandExecutor {
                         }
                         if (Bukkit.getBossBar(NamespacedKey.minecraft(games.toLowerCase() + "ct")).getPlayers().contains(p)) {
                             Bukkit.getBossBar(NamespacedKey.minecraft(games.toLowerCase() + "ct")).removePlayer(p);
+                        }
+
+                        for (Entity e : p.getPassengers()) {
+                            e.remove();
+                        }
+
+                        if (sendMessage) {
+                            p.performCommand("tptospawn");
                         }
                     } else {
                         if (gameUtils.lobbyPlayers().contains(p)) {

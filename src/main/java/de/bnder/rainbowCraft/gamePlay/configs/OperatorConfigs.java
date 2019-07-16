@@ -103,6 +103,18 @@ public class OperatorConfigs {
 
         }}, "at", 4000);
 
+        set("Flasher", "Erhält 2 Flashbangs", Material.FIREWORK_STAR, "AK-12", new ArrayList<ItemStack>(){{
+
+            ItemStack button = new ItemStack(Material.FIREWORK_STAR);
+            ItemMeta pickaxeMeta = button.getItemMeta();
+            pickaxeMeta.setDisplayName("§fFlashbang");
+            button.setItemMeta(pickaxeMeta);
+
+            add(button);
+            add(button);
+
+        }}, "at", 4000);
+
         set("Rekrut", "Standard Operator", Material.COAL, "G36C", new ArrayList<ItemStack>(), "at & t", 0);
 
         try {

@@ -92,6 +92,7 @@ public class cmdJoin implements CommandExecutor {
                     final ResultSet rs = Connection.mainConnection().prepareStatement("SELECT `owner`, `mapName`, `mapID`, `upvotes`, `downvotes`, `played` FROM `MCR6_Player_Maps_General` WHERE `public`=true LIMIT " + inv.getSize()).executeQuery();
                     int slot = 0;
                     while (rs.next()) {
+                        final GameUtils gameUtils = new GameUtils(rs.getString("mapID"));
                         ItemStack map = new ItemStack(Material.GRASS_BLOCK);
                         ItemMeta mapM = map.getItemMeta();
                         if (rs.getString("mapName") != null) {
@@ -104,7 +105,17 @@ public class cmdJoin implements CommandExecutor {
                             add("§aUpvotes: §2" + rs.getLong("upvotes"));
                             add("§cDownvotes: §4" + rs.getLong("downvotes"));
                             add("§9Gespielt: §9" + rs.getLong("played"));
+                            add(" ");
+                            String status = "§aOffen";
+                            if (gameUtils.isRunning()) {
+                                status = "§cIm Spiel";
+                            }
+                            add("§2Status: " + status);
+                            if (!gameUtils.isRunning()) {
+                                add("§eSpieler: " + gameUtils.lobbyPlayers().size());
+                            }
 
+                            add(" ");
                             add("§7ID: " + rs.getString("mapID"));
                         }});
                         map.setItemMeta(mapM);
