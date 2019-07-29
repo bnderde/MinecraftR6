@@ -44,7 +44,16 @@ public class CancelTeleport implements Listener {
                                 ArmorStand armorStand = (ArmorStand) entity;
                                 if (armorStand.getHelmet().getType() == Material.FURNACE) {
                                     p.setGameMode(GameMode.SPECTATOR);
-                                    p.setSpectatorTarget(entity);
+                                    try {
+                                        p.setSpectatorTarget(null);
+                                    } catch (Exception e1) {
+
+                                    }
+                                    try {
+                                        p.setSpectatorTarget(entity);
+                                    } catch (Exception e1) {
+
+                                    }
                                     e.setCancelled(true);
                                 }
                             }
