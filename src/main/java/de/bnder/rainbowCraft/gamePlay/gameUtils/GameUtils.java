@@ -66,7 +66,9 @@ public class GameUtils {
         ArrayList<String> list = new ArrayList<String>(OperatorConfigs.fc.getStringList("Operators"));
         for (Player p : lobbyPlayers()) {
             if (Main.gamesC.get(path + ".player" + "." + p.getUniqueId().toString() + ".operator") != null) {
-                list.remove(Main.gamesC.getString(path + ".player" + "." + p.getUniqueId().toString() + ".operator"));
+                try {
+                    list.remove(Main.gamesC.getString(path + ".player" + "." + p.getUniqueId().toString() + ".operator"));
+                } catch (NullPointerException ingored){}
             }
         }
         if (!list.contains("rekrut")) {

@@ -28,7 +28,7 @@ import java.util.ArrayList;
 
 public class OperatorConfigs {
 
-    public static File file = new File("plugins/MinecraftR6/operators.yml");
+    public static File file = new File("plugins/RainbowCraft/operators.yml");
     public static FileConfiguration fc = YamlConfiguration.loadConfiguration(file);
 
     public static void prepare() {

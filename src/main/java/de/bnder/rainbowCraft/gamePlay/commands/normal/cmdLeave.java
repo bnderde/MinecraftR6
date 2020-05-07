@@ -78,15 +78,19 @@ public class cmdLeave implements CommandExecutor {
 
                         if (gameUtils.isRunning()) {
                             if (gameUtils.players().size() <= 1 || gameUtils.getCTs().size() == 0 || gameUtils.getTs().size() == 0) {
-                               EndGame.end(games, "null");
+                                EndGame.end(games, "null");
                             }
                         }
 
-                        if (Bukkit.getBossBar(NamespacedKey.minecraft(games.toLowerCase() + "t")).getPlayers().contains(p)) {
-                            Bukkit.getBossBar(NamespacedKey.minecraft(games.toLowerCase() + "t")).removePlayer(p);
+                        if (Bukkit.getBossBar(NamespacedKey.minecraft(games.toLowerCase() + "t")) != null) {
+                            if (Bukkit.getBossBar(NamespacedKey.minecraft(games.toLowerCase() + "t")).getPlayers().contains(p)) {
+                                Bukkit.getBossBar(NamespacedKey.minecraft(games.toLowerCase() + "t")).removePlayer(p);
+                            }
                         }
-                        if (Bukkit.getBossBar(NamespacedKey.minecraft(games.toLowerCase() + "ct")).getPlayers().contains(p)) {
-                            Bukkit.getBossBar(NamespacedKey.minecraft(games.toLowerCase() + "ct")).removePlayer(p);
+                        if (Bukkit.getBossBar(NamespacedKey.minecraft(games.toLowerCase() + "ct")) != null) {
+                            if (Bukkit.getBossBar(NamespacedKey.minecraft(games.toLowerCase() + "ct")).getPlayers().contains(p)) {
+                                Bukkit.getBossBar(NamespacedKey.minecraft(games.toLowerCase() + "ct")).removePlayer(p);
+                            }
                         }
 
                         for (Entity e : p.getPassengers()) {
@@ -132,11 +136,15 @@ public class cmdLeave implements CommandExecutor {
                                 }
                             }
 
-                            if (Bukkit.getBossBar(NamespacedKey.minecraft(games.toLowerCase() + "t")).getPlayers().contains(p)) {
-                                Bukkit.getBossBar(NamespacedKey.minecraft(games.toLowerCase() + "t")).removePlayer(p);
+                            if (Bukkit.getBossBar(NamespacedKey.minecraft(games.toLowerCase() + "t")) != null) {
+                                if (Bukkit.getBossBar(NamespacedKey.minecraft(games.toLowerCase() + "t")).getPlayers().contains(p)) {
+                                    Bukkit.getBossBar(NamespacedKey.minecraft(games.toLowerCase() + "t")).removePlayer(p);
+                                }
                             }
-                            if (Bukkit.getBossBar(NamespacedKey.minecraft(games.toLowerCase() + "ct")).getPlayers().contains(p)) {
-                                Bukkit.getBossBar(NamespacedKey.minecraft(games.toLowerCase() + "ct")).removePlayer(p);
+                            if (Bukkit.getBossBar(NamespacedKey.minecraft(games.toLowerCase() + "ct")) != null) {
+                                if (Bukkit.getBossBar(NamespacedKey.minecraft(games.toLowerCase() + "ct")).getPlayers().contains(p)) {
+                                    Bukkit.getBossBar(NamespacedKey.minecraft(games.toLowerCase() + "ct")).removePlayer(p);
+                                }
                             }
                         }
                     }

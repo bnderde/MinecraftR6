@@ -25,7 +25,6 @@ import de.bnder.rainbowCraft.main.Main;
 import de.bnder.rainbowCraft.utils.Connection;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
-import org.bukkit.NamespacedKey;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -66,7 +65,7 @@ public class cmdJoin implements CommandExecutor {
 
                             LobbyUtils.userJoinsLobby(gameName);
 
-                            Bukkit.getBossBar(NamespacedKey.minecraft("lobby_bar")).removePlayer(p);
+                            //Bukkit.getBossBar(NamespacedKey.minecraft("lobby_bar")).removePlayer(p);
 
                             p.setScoreboard(Bukkit.getScoreboardManager().getNewScoreboard());
 

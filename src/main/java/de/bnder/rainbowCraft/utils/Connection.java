@@ -47,8 +47,10 @@ public class Connection {
         try {
             Class.forName("com.mysql.jdbc.Driver");
             con = DriverManager.getConnection("jdbc:mysql://" + hostname + "/" + dbname + "?autoReconnect=true&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=CET", user, pw);
+
+            //TODO: TABLE CHECKS
         } catch (Exception e) {
-            System.exit(900);
+            e.printStackTrace();
         }
     }
 

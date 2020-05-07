@@ -40,6 +40,7 @@ public class CancelTargetLeave implements Listener {
                             p.teleport(entity);
                             entity.remove();
                             e.setCancelled(true);
+                            break;
                         }
                     }
                 }

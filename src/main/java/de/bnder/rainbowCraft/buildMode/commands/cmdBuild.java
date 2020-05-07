@@ -50,7 +50,6 @@ public class cmdBuild implements CommandExecutor {
                             e.printStackTrace();
                         }
                         if (mapID != null) {
-
                             JoinBuildMode.join(p, mapID);
                         } else {
                             p.sendMessage(Main.prefix + " §cFehler: Es konnte keine Map-ID erfasst werden!");

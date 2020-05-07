@@ -24,7 +24,7 @@ import java.io.IOException;
 
 public class WeaponsConfig {
 
-    public static File file = new File("plugins/MinecraftR6/weapons.yml");
+    public static File file = new File("plugins/RainbowCraft/weapons.yml");
     public static FileConfiguration fc = YamlConfiguration.loadConfiguration(file);
 
     public static void prepare() {

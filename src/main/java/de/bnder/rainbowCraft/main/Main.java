@@ -53,7 +53,6 @@ import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.File;
-import java.text.DecimalFormat;
 
 public class Main extends JavaPlugin {
 
@@ -155,9 +154,8 @@ public class Main extends JavaPlugin {
 
     }
 
-    public static double RoundTo2Decimals(double val) {
-        DecimalFormat df2 = new DecimalFormat("###.##");
-        return Double.valueOf(df2.format(val));
+    public static int RoundTo2Decimals(double val) {
+        return (int) val;
     }
 
 }

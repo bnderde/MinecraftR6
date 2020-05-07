@@ -1,6 +1,6 @@
 <component name="ArtifactManager">
   <artifact type="jar" name="RainbowCraft">
-    <output-path>$PROJECT_DIR$/out/artifacts/RainbowCraft</output-path>
+    <output-path>$PROJECT_DIR$/../../MCServer/plugins</output-path>
     <root id="archive" name="RainbowCraft.jar">
       <element id="module-output" name="MinecraftR6" />
       <element id="file-copy" path="$PROJECT_DIR$/src/main/java/plugin.yml" />

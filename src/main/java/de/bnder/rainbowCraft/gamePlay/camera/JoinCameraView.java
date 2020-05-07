@@ -35,8 +35,6 @@ public class JoinCameraView {
             ResultSet rs = Connection.mainConnection().prepareStatement("SELECT * FROM `MCR6_Map_Cameras` WHERE `mapID`='" + game + "'").executeQuery();
             while (rs.next()) {
                 int cam = Integer.parseInt(camera);
-                System.out.println(i);
-                System.out.println(cam);
                 if (i == cam) {
                     Location cameraLoc = getCameraLocation(game, camera);
 
@@ -51,7 +49,7 @@ public class JoinCameraView {
                         }
                     }
 
-                    if (spawnCamera || cameraEntity == null) {
+                    if (spawnCamera) {
                         cameraEntity = spawnCamera(cameraLoc);
                     }
 
