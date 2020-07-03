@@ -33,7 +33,7 @@ public class CancelTeleport implements Listener {
     public void onTP(PlayerTeleportEvent e) {
         Player p = e.getPlayer();
         if (e.getCause() == PlayerTeleportEvent.TeleportCause.SPECTATE) {
-            if (p.getGameMode() == GameMode.SPECTATOR) {
+            if (p.getGameMode() == GameMode.SPECTATOR && JoinCameraView.inCam.contains(p.getUniqueId().toString())) {
                 PlayerUtils playerUtils = new PlayerUtils(p);
                 if (playerUtils.isInGame()) {
                     if (e.getTo().getWorld() != e.getFrom().getWorld()) {

@@ -17,19 +17,24 @@ package de.bnder.rainbowCraft.gamePlay.camera;
  */
 
 import de.bnder.rainbowCraft.gamePlay.gameUtils.GameUtils;
+import de.bnder.rainbowCraft.main.Main;
 import de.bnder.rainbowCraft.utils.Connection;
 import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.entity.*;
+import org.bukkit.event.player.PlayerTeleportEvent;
 import org.bukkit.inventory.ItemStack;
 
 import java.sql.ResultSet;
+import java.util.ArrayList;
 
 public class JoinCameraView {
 
-    public static void join(Player p, String game, String camera) {
+    public static ArrayList<String> inCam = new ArrayList<String>();
+
+    public static void join(final Player p, String game, String camera) {
         int i = 0;
         try {
             ResultSet rs = Connection.mainConnection().prepareStatement("SELECT * FROM `MCR6_Map_Cameras` WHERE `mapID`='" + game + "'").executeQuery();
@@ -74,12 +79,19 @@ public class JoinCameraView {
                         }
                     }
 
-                    if (p.getSpectatorTarget() != null) {
-                        p.setSpectatorTarget(null);
-                    }
-
                     p.setGameMode(GameMode.SPECTATOR);
-                    p.setSpectatorTarget(cameraEntity);
+                    final Entity finalCameraEntity = cameraEntity;
+                    p.setSpectatorTarget(null);
+                    p.teleport(finalCameraEntity, PlayerTeleportEvent.TeleportCause.PLUGIN);
+                    Bukkit.getScheduler().scheduleSyncDelayedTask(Main.plugin, new Runnable() {
+                        @Override
+                        public void run() {
+                            p.setSpectatorTarget(finalCameraEntity);
+                            p.setSpectatorTarget(finalCameraEntity);
+                            inCam.add(p.getUniqueId().toString());
+                        }
+                    }, 1);
+                    return;
                 }
                 i++;
             }

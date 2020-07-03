@@ -31,11 +31,12 @@ public class CancelTargetLeave implements Listener {
     public void onSneak(PlayerToggleSneakEvent e) {
         Player p = e.getPlayer();
         if (e.isSneaking()) {
-            if (p.getGameMode() == GameMode.SPECTATOR) {
+            if (p.getGameMode() == GameMode.SPECTATOR && JoinCameraView.inCam.contains(p.getUniqueId().toString())) {
                 PlayerUtils playerUtils = new PlayerUtils(p);
                 if (playerUtils.isInGame()) {
                     for (Entity entity : p.getWorld().getEntitiesByClasses(Villager.class)) {
                         if (entity.getCustomName() != null && entity.getCustomName().equals(p.getName())) {
+                            JoinCameraView.inCam.remove(p.getUniqueId().toString());
                             p.setGameMode(GameMode.SURVIVAL);
                             p.teleport(entity);
                             entity.remove();

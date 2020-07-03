@@ -41,6 +41,7 @@ public class SpawnHostage {
         zombie.setSilent(true);
         zombie.setBaby(false);
         zombie.setCollidable(true);
+        zombie.setRemoveWhenFarAway(false);
     }
 
 }

@@ -84,7 +84,7 @@ public class MapReset implements Listener {
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-                System.out.println("Restored Map " + map + " with " + blocks + " changed");
+                System.out.println("Restored Map " + map + " with " + blocks + " changes");
             }
         }.runTaskLater(Main.plugin, 2 * 20);
     }
